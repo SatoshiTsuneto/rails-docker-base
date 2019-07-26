@@ -1,10 +1,13 @@
 ### アプリケーションについて
+
 - このアプリケーションは、Dokcerを用いてRuby on Rails（以下Rails）の環境を作成することのできるものです。自身の使いたいRuby及びRailsのバージョンを指定することができ、新たにアプリケーションを作る場合も、既存のアプリケーションをDockerで動かしたい場合も、簡単に行うことができます。
 
 
 ### 使用方法
 
+
 #### １．新規でアプリケーションを作成する場合
+
 - Dockerfile内の一番上の「ruby:」のあとでRubyのバージョンを指定することができます。初期状態では、「2.6.3」が指定されているので、Ruby 2.6.3がインストールされたDocker Imageを使用することになります。
 
 - rails-appディレクトリにあるGemfile内の「gem 'rails'」のあとでRailsのバージョンを指定することができます。初期の状態では、「5.2.2」が指定されているので、Rails 5.2.2がインストールされます。
@@ -51,12 +54,14 @@ $ docker-compose up -d
 - 以下のコマンドでデータベースを初期化する。
 
 ```
-$ docker-compose run web chmod -R +777 . && docker-compose exec web rake db:create
+$ docker-compose exec web rake db:create
 ```
 
 - ブラウザで `http://localhost:3000` にアクセスしてwelcomeページが表示されれば作業終了です。
 
+
 #### ２．既存のアプリケーションを動かしたい場合
+
 - Dockerfile内のrubyのバージョンを既存アプリで使用しているバージョンと合わせます。
 
 - rails-appディレクトリを削除して、既存アプリをDockerfileと同じ場所に移動させます。
@@ -96,4 +101,4 @@ $ docker-compose exec web rake db:create
 $ docker-compose exec web rake db:migrate
 ```
 
-- ブラウザで自身で設定したルーティングに合わせてアクセスし、問題なく動いていれば作業終了です。。
+- ブラウザで自身で設定したルーティングに合わせてアクセスし、問題なく動いていれば作業終了です。
