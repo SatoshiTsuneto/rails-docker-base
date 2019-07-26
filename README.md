@@ -23,7 +23,7 @@
  $ docker-compose run web chmod -R +777 .
  ```
  
- - Gemの更新があったかもしれないので、以下のコマンドを実行しておく。
+ - 新規プロジェクトを作成して新しく追加されたgemをinstallするため、イメージを再ビルドするために以下のコマンドを実行しておく。
  
  ```
  $ docker-compose build
@@ -51,7 +51,7 @@ $ docker-compose up -d
 - 以下のコマンドでデータベースを初期化する。
 
 ```
-$ docker-compose exec web rake db:create
+$ docker-compose run web chmod -R +777 . && docker-compose exec web rake db:create
 ```
 
 - ブラウザで `http://localhost:3000` にアクセスしてwelcomeページが表示されれば作業終了です。
