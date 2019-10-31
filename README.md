@@ -1,6 +1,6 @@
-### アプリケーションについて
+### このリポジトリについて
 
-- このアプリケーションは、Dokcerを用いてRuby on Rails（以下Rails）の環境を作成することができるものです。自身の使いたいRuby及びRailsのバージョンを指定することができ、新たにアプリケーションを作る場合も、既存のアプリケーションをDockerで動かしたい場合も、簡単に行うことができます。
+- Dokcerを用いてRuby on Rails（以下Rails）の環境を作成することができるものです。自身の使いたいRuby及びRailsのバージョンを指定することができ、新たにアプリケーションを作る場合も、既存のアプリケーションをDockerで動かしたい場合も、簡単に行うことができます。
 
 
 ### 使用方法
@@ -26,7 +26,7 @@
  $ docker-compose run web chmod -R +777 .
  ```
  
- - 新規プロジェクトを作成して新しく追加されたgemをインストールするため、イメージを再ビルドするために以下のコマンドを実行しておきます。
+ - 新規プロジェクトを作成して新しく追加されたgemをインストールするためにイメージを再ビルドする必要があるので、以下のコマンドを実行しておきます。
  
  ```
  $ docker-compose build
@@ -69,7 +69,7 @@ $ docker-compose exec web rake db:create
 - Dockerfile及びdocker-compose.yml内のrails-appとなっている場所をすべて既存アプリのディレクトリ名に変更します。
 
 - 既存アプリのconfig/database.ymlを編集します。  
- ※ usernameとpasswordをdoker-compose.ymlで指定したものに変更し、hostをdbに変更する。
+ ※ usernameとpasswordをdoker-compose.ymlで指定したものに変更し、hostをdbに変更します。
  
  ```
  default: &default
