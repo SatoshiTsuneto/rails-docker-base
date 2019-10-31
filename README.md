@@ -19,21 +19,21 @@
  $ docker-compose run web rails new . --force --database=mysql
  ```
 
- - ホスト側のrails-appディレクトリに共有されているファイルに権限がないので、以下のコマンドで権限を変更する。   
- ※ Docker側で作成されたファイルは、権限がrootになっているので、ホスト側で編集したい場合はその都度以下のコマンドを実行する必要がある。
+ - ホスト側のrails-appディレクトリに共有されているファイルに権限がないので、以下のコマンドで権限を変更します。   
+ ※ Docker側で作成されたファイルは、権限がrootになっているので、ホスト側で編集したい場合はその都度以下のコマンドを実行する必要があります。
 
  ```
  $ docker-compose run web chmod -R +777 .
  ```
  
- - 新規プロジェクトを作成して新しく追加されたgemをインストールするため、イメージを再ビルドするために以下のコマンドを実行しておく。
+ - 新規プロジェクトを作成して新しく追加されたgemをインストールするため、イメージを再ビルドするために以下のコマンドを実行しておきます。
  
  ```
  $ docker-compose build
  ```
 
- - DBMSをMySQLに変更しているので、その設定をする。rails-app/config/database.ymlを編集する。   
- ※ usernameとpasswordをdoker-compose.ymlで指定したものに変更し、hostをdbに変更する。
+ - DBMSをMySQLに変更しているので、その設定をする。rails-app/config/database.ymlを編集します。   
+ ※ usernameとpasswordをdoker-compose.ymlで指定したものに変更し、hostをdbに変更します。
  
  ```
  default: &default
@@ -45,13 +45,13 @@
   host: db
  ```
 
-- 以下のコマンドでアプリケーションを立ち上げる。
+- 以下のコマンドでアプリケーションを立ち上げます。
 
 ```
 $ docker-compose up -d
 ```
 
-- 以下のコマンドでデータベースを初期化する。
+- 以下のコマンドでデータベースを初期化します。
 
 ```
 $ docker-compose exec web rake db:create
@@ -81,21 +81,21 @@ $ docker-compose exec web rake db:create
   host: db
  ```
 
- - 既存アプリでMySQL以外のDBMSを使用している場合は、docker-compose.ymlのdbを使用しているDBMSに合わせて編集する。
+ - 既存アプリでMySQL以外のDBMSを使用している場合は、docker-compose.ymlのdbを使用しているDBMSに合わせて編集します。
 
-- 以下のコマンドで、アプリケーションを立ち上げる。
+- 以下のコマンドで、アプリケーションを立ち上げます。
 
 ```
 $ docker-compose up -d
 ```
 
-- 以下のコマンドでデータベースを初期化する。
+- 以下のコマンドでデータベースを初期化します。
 
 ```
 $ docker-compose exec web rake db:create
 ```
 
-- 以下のコマンドでデータベースのマイグレーションを行う。
+- 以下のコマンドでデータベースのマイグレーションを行います。
 
 ```
 $ docker-compose exec web rake db:migrate
